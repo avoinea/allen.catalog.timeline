@@ -1,0 +1,29 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="allen">
+
+  <class class=".timeline.Timeline">
+    <require
+      interface=".interfaces.ITimeline"
+      permission="zope.View" />
+    <require
+      set_schema=".interfaces.ITimeline"
+      permission="zope.ManageContent" />
+  </class>
+
+  <browser:addMenuItem
+    title="Timeline"
+    description="Timeline utiltiy"
+    class=".timeline.Timeline"
+    for="zope.interface.Interface"
+    permission="zope.ManageContent" />
+
+  <browser:page
+    name="count.html"
+    for=".interfaces.ITimeline"
+    permission="zope.ManageContent"
+    class=".browser.Count"
+    />
+
+</configure>
