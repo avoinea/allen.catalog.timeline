@@ -20,6 +20,17 @@
     permission="zope.ManageContent" />
 
   <browser:page
+    name="edit.html"
+    menu="zmi_views"
+    title="Edit"
+    for=".interfaces.ITimeline"
+    permission="zope.ManageContent"
+    class=".browser.Edit"
+    />
+
+  <browser:page
+    menu="zmi_views"
+    title="Count"
     name="count.html"
     for=".interfaces.ITimeline"
     permission="zope.ManageContent"

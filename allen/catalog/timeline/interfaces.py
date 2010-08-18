@@ -4,6 +4,9 @@ from zope.interface import Interface
 class ITimeline(Interface):
     """ Timeline utility
     """
+    maxitems = schema.Int(title=u'Max items', default=5000)
+    datefield = schema.TextLine(title=u'Date field', default=u'updated')
+
     def index(doc):
         """ Add doc intid to timeline
         """
@@ -14,4 +17,8 @@ class ITimeline(Interface):
 
     def reindex(doc):
         """ Reindex doc of all intids
+        """
+
+    def __len__():
+        """ Timeline length
         """

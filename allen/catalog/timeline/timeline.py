@@ -19,10 +19,12 @@ class Timeline(Persistent, Contained):
     datefield = u'updated'
     implements(ITimeline)
 
+    def __init__(self, *args):
+        self._timeline = PersistentList([])
+        super(Timeline, self).__init__(*args)
+
     @property
     def timeline(self):
-        if not isinstance(self._timeline, PersistentList):
-            self._timeline = PersistentList([])
         return self._timeline
 
     def index(self, doc):
